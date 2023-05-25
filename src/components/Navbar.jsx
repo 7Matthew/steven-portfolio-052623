@@ -14,7 +14,7 @@ export default function Navbar () {
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-end">
                             <li class="nav-item">
-                                <a class="btn nav-link text-white active" aria-current="page" href="http://localhost:3000">Projects</a>
+                                <a class="nav-link text-white active" aria-current="page" href="http://localhost:3000">Projects</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="http://localhost:3000">Contact Me!</a>

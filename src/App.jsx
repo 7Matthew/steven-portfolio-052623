@@ -6,8 +6,7 @@ import Banner from './components/Banner';
 export default function App() {
   return (
     <>  
-      <Navbar />
-      <div className="container-fluid area">
+      <div className="area">
         <div className="circles">
           <div></div>
           <div></div>
@@ -20,6 +19,8 @@ export default function App() {
           <div></div>
           <div></div>
         </div>
+        <Navbar />
+      <div className="container-fluid">
         <div className="row">
           <div className="col-lg-6 col-md-12 col-sm-12">
             <Banner />
@@ -35,6 +36,8 @@ export default function App() {
           </div>
         </div>
       </div>
+      </div>
+      
     </>
   );
 }
