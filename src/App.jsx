@@ -1,7 +1,7 @@
 import './assets/css/style.css';
 import Navbar from './components/Navbar';
 import Banner from './components/Banner';
-
+const HOME = window.location.href;
 
 export default function App() {
   return (
@@ -30,7 +30,7 @@ export default function App() {
               <h1 className='introduction'> Hey, I am <b>Steven Matthew!</b></h1>
               <h5>Fullstack Laravel Developer | React Developer</h5>
               <h5>
-                See my projects <a href="localhost:3000"><button type='button' className='btn btn-outline-secondary btn-md'> <b>Here!</b> </button></a>
+                See my projects <a href={HOME}> <button type='button' className='btn btn-outline-secondary btn-md'> <b>Here!</b> </button> </a>
               </h5>
             </div>
           </div>
