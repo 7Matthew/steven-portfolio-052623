@@ -26,9 +26,9 @@ export default function Navbar () {
                                     Documents
                                 </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href={HOME}>Action</a></li>
-                                <li><a class="dropdown-item" href={HOME}>Another action</a></li>
-                                <li><a class="dropdown-item" href={HOME}>Something else here</a></li>
+                                <li><a class="dropdown-item" href={HOME}>Resume</a></li>
+                                <li><a class="dropdown-item" href={HOME}>Reccomendation Letter</a></li>
+                                <li><a class="dropdown-item" href={HOME}>MOA</a></li>
                             </ul>
                             </li>
                         </ul>
