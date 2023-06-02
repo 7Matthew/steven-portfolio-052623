@@ -2,7 +2,6 @@ import '../assets/css/style.css';
 import '../assets/fontawesome/css/fontawesome.css';
 import '../assets/fontawesome/css/brands.css';
 import '../assets/fontawesome/css/solid.css';
-import Navbar from '../components/Navbar';
 import Banner from '../components/Banner';
 import { STEVEN } from '../data';
 const HOME = window.location.href;
@@ -12,7 +11,6 @@ let steven = STEVEN;
 export default function Welcome () {
     return (
         <>
-            <Navbar />
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-lg-6 col-md-12 col-sm-12">
