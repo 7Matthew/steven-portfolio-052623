@@ -5,6 +5,9 @@ import AddingInteractions from './notes/AddingInteractions';
 import ConditionalRendering from "./notes/ConditionalRendering";
 import RenderingLists from "./notes/RenderingLists";
 import Errors from "./error-page/Errors-page";
+import Moa from "./views/documents/Moa";
+import Recommendation from "./views/documents/Recommendation";
+import Resume from "./views/documents/Resume";
 
 const router = createBrowserRouter([
     
@@ -36,7 +39,22 @@ const router = createBrowserRouter([
 
             {
                 path: '/notes',
-                element: [<ConditionalRendering />, <RenderingLists />, <AddingInteractions />]
+                element: [<ConditionalRendering key={0} />, <RenderingLists key={1}/>, <AddingInteractions key={2}/>]
+        
+            },
+            {
+                path: '/documents/moa',
+                element: <Moa />
+        
+            },
+            {
+                path: '/documents/recommendation-letter',
+                element: <Recommendation />
+        
+            },
+            {
+                path: '/documents/resume',
+                element: <Resume />
         
             }
         ],

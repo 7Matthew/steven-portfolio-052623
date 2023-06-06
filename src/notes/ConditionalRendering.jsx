@@ -30,7 +30,7 @@ function Item({ name, isPacked }) {
 export default function ConditionalRendering (){    
     return (
         <>
-            <div className="container">
+            <div className="container my-4">
                 <div className="row">
                     <div className="col-lg-2 col-md-2 col-sm-12">
 

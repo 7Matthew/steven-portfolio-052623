@@ -17,6 +17,32 @@ function Button ({className}){
 
 }
 
+function Clicker({ onClick, children }) {
+    return (
+      <button onClick={e => {
+        e.stopPropagation(); // stop propagation
+        onClick();
+      }}>
+        {children}
+      </button>
+    );
+}
+
+function Toolbar() {
+    return (
+      <div className="Toolbar" onClick={() => {
+        alert('You clicked on the toolbar!');
+      }}>
+        <Clicker onClick={() => alert('Playing!')}>
+          Play Movie
+        </Clicker>
+        <Clicker onClick={() => alert('Uploading!')}>
+          Upload Image
+        </Clicker>
+      </div>
+    );
+  }
+
 function InputQuantity ({value}){
    
     return(
@@ -113,7 +139,6 @@ export default function AddingInteractions() {
                                     </div>
                                     <div className="col-lg-2 col-md-4 col-sm-6">
                                         <InputQuantity value={quantity}/>
-                                        {console.log(quantity)}
                                     </div>
                                     <div className="col-lg-1 col-md-2 col-sm-3">
                                         <Increment />
@@ -130,6 +155,30 @@ export default function AddingInteractions() {
                     </div>
                     <div className="col-lg-2 col-md-2 col-sm-12">
                         
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-lg-2 col-md-2 col-sm-12">
+        
+                    </div>
+                    <div className="col">
+                        <h1>Responding to Events</h1>
+                        <div className="container my-2">
+                            <p style={{color:'red'}}>We are trying to stop propagation here by using the stopProgation() function in the button's event handler Event handlers receive an event object as their only argument. By convention, it’s usually called e, which stands for “event”. You can use this object to read information about the event. </p>
+                            <Toolbar />
+                        </div>
+                        <div className="container my-2">
+                            <p style={{color:'red'}}> preventDefault() function prevents the default behavior of an element. in this case, it prevents the default behavior of the form that is refreshing the page when submitted</p>
+                            <form onSubmit={e => {
+                            e.preventDefault(); // 
+                            alert('Submitting!');
+                            }}>
+                                <input />
+                                <button>Send</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div className="col-lg-2 col-md-2 col-sm-12">
                     </div>
                 </div>
             </div>

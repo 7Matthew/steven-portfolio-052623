@@ -42,7 +42,7 @@ export default function Navbar () {
                                 </a>
                             <ul className="dropdown-menu dropdown-menu-end">
                                 <li><a className="dropdown-item" href={'/documents/resume'}>Resume</a></li>
-                                <li><a className="dropdown-item" href={'/documents/reccomendation-letter'}>Reccomendation Letter</a></li>
+                                <li><a className="dropdown-item" href={'/documents/recommendation-letter'}>Recommendation Letter</a></li>
                                 <li><a className="dropdown-item" href={'/documents/moa'}>MOA</a></li>
                             </ul>
                             </li>
