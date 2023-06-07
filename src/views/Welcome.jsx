@@ -13,9 +13,6 @@ export default function Welcome () {
         <>
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-lg-6 col-md-12 col-sm-12">
-                        <Banner />
-                    </div>
                     <div className="col-lg-6 col-md-12 col-sm-12 mt-5 header">
                         <div className="row mt-5 text-center">
                             <h1 className='introduction'> Hey, I am <b>{steven.firstName}</b></h1>
@@ -32,6 +29,9 @@ export default function Welcome () {
                             <a href={steven.facebook} target='__blank'> <i className="fa-brands fa-facebook fa-lg m-4"></i> </a>
                             </h1>
                         </div>
+                    </div>
+                    <div className="col-lg-6 col-md-12 col-sm-12">
+                        <Banner />
                     </div>
                 </div>
             </div>

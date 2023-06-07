@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { foods } from "./food_items";
 
+
 function Button ({className}){
     const [clicks, setClicks] = useState(0);  
 
@@ -19,7 +20,7 @@ function Button ({className}){
 
 function Clicker({ onClick, children }) {
     return (
-      <button onClick={e => {
+      <button className="btn btn-outline-primary btn-sm me-2" onClick={e => {
         e.stopPropagation(); // stop propagation
         onClick();
       }}>
@@ -52,12 +53,42 @@ function InputQuantity ({value}){
     );
 }
 
+function Form() {
+    const [isSent, setIsSent] = useState(false);
+    const [message, setMessage] = useState('Hi!');
+
+    if (isSent) {
+      return <h1>Your message is on its way!</h1>
+    }
+
+    return (
+      <form onSubmit={(e) => {
+        e.preventDefault();
+        setIsSent(true);
+        sendMessage(message);
+      }}>
+        <textarea
+          className="form-control"
+          placeholder="Message"
+          value={message}
+          onChange={e => setMessage(e.target.value)}
+        />
+        <button type="submit" className="btn btn-primary btn-sm mt-5">Send</button>
+      </form>
+    );
+}
+
+function sendMessage(message) {
+    // ...
+}
+
+
 
 export default function AddingInteractions() {
     const [quantity, setQuantity] = useState(0);
     const [index, setIndex] = useState(0);
     const hasNext = index < foods.length - 1;
-    const hasPrevious = index < foods.length - 1 && index !== 0;
+    const hasPrevious = index > 0;
 
     function handleIncrement(){
         return setQuantity(quantity + 1);
@@ -79,7 +110,7 @@ export default function AddingInteractions() {
         if (hasPrevious) {
             return setIndex(index - 1);
         }
-        else return setIndex(0);
+        else return setIndex(foods.length - 1);
     }
 
 
@@ -117,13 +148,13 @@ export default function AddingInteractions() {
     let food = foods[index];
     return(
         <>
-            <div className="container">
+            <div className="container" >
                 <div className="row">
                     <div className="col-lg-2 col-md-2 col-sm-12">
 
                     </div>
-                    <div className="col">
-                        <h1>Adding Interactivity to components</h1>
+                    <div className="col" >
+                        <h1><b>Adding Interactivity to components </b></h1>
                         <div className="container my-2">
                             <h3>Buttons that counts the clicks it received.</h3>
                             <Button className="btn btn-outline-primary btn-xl me-2"></Button>
@@ -157,13 +188,14 @@ export default function AddingInteractions() {
                         
                     </div>
                 </div>
-                <div className="row">
+                <div className="row" >
                     <div className="col-lg-2 col-md-2 col-sm-12">
         
                     </div>
                     <div className="col">
-                        <h1>Responding to Events</h1>
+                        
                         <div className="container my-2">
+                            <h3>Responding to Events</h3>
                             <p style={{color:'red'}}>We are trying to stop propagation here by using the stopProgation() function in the button's event handler Event handlers receive an event object as their only argument. By convention, it’s usually called e, which stands for “event”. You can use this object to read information about the event. </p>
                             <Toolbar />
                         </div>
@@ -173,9 +205,14 @@ export default function AddingInteractions() {
                             e.preventDefault(); // 
                             alert('Submitting!');
                             }}>
-                                <input />
-                                <button>Send</button>
+                                <input type="text" placeholder="Input anything" className="form-control" />
+                                <button type="submit" className="btn btn-outline-success btn-sm m-2">Send</button>
                             </form>
+                        </div>
+                        <div className="container my-2">
+                            <h3>State as a Snapshot</h3>
+                            <p style={{color:'red'}}> In this example, when you press “send”, setIsSent(true) tells React to re-render the UI:</p>    
+                            <Form />
                         </div>
                     </div>
                     <div className="col-lg-2 col-md-2 col-sm-12">

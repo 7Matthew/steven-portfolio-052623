@@ -8,7 +8,7 @@ let steven = STEVEN;
 export default function Navbar () {
     return (
         <>
-            <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "rgba(94, 203, 255, 1)" }}>
+            <nav className="navbar navbar-expand-lg sticky-top" style={{ backgroundColor: "rgba(94, 203, 255, 1)" }}>
                 <div className="container-fluid">
                     <a className="navbar-brand text-light" href={'/'}>
                         <h6> <img src={Brand} alt="Steven" width={40} height={40}></img>  {steven.firstName}</h6>
@@ -22,13 +22,13 @@ export default function Navbar () {
                         </div>
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0 justify-content-end">
                             <li className="nav-item">
-                                <a className="nav-link text-white active" aria-current="page" href={'/'}>Home</a>
+                                <a className="nav-link text-white" aria-current="page" href={'/'}>Home</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link text-white active" aria-current="page" href={'/about-me'}>About me</a>
+                                <a className="nav-link text-white" aria-current="page" href={'/about-me'}>About me</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link text-white active" aria-current="page" href={'/Projects'}>Projects</a>
+                                <a className="nav-link text-white" aria-current="page" href={'/Projects'}>Projects</a>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link text-white" href={'/contact-me'}>Contact Me!</a>
