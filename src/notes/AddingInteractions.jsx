@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { foods } from "./food_items";
-
+import Slider from "../components/Slider";
 
 function Button ({className}){
     const [clicks, setClicks] = useState(0);  
@@ -82,6 +82,27 @@ function sendMessage(message) {
     // ...
 }
 
+function Counter() {
+    const [number, setNumber] = useState(0);
+    /**
+     * ! To summarize, here’s how you can think of what you’re passing to the setNumber state setter:
+    *  ! An updater function (e.g. n => n + 1) gets added to the queue. Any other value (e.g. number 5) adds “replace with 5” to the queue, ignoring what’s already queued.
+     */
+    return (
+      <>
+        <h1>{number}</h1>
+        <button onClick={() => {
+          setNumber(n => n + 1);
+          setNumber(n => n + 1);
+          setNumber(n => n + 1);
+        }}>+3</button>
+        <div className="progress" role="progressbar" aria-label="Basic example" aria-valuenow={number} aria-valuemin="0" aria-valuemax="100" style={{height:20  }}>
+            <div className="progress-bar" style={{width:number + '%'}}></div>
+        </div>
+      </>
+    )
+  }
+
 
 
 export default function AddingInteractions() {
@@ -153,7 +174,7 @@ export default function AddingInteractions() {
                     <div className="col-lg-2 col-md-2 col-sm-12">
 
                     </div>
-                    <div className="col" >
+                    <div className="col">
                         <h1><b>Adding Interactivity to components </b></h1>
                         <div className="container my-2">
                             <h3>Buttons that counts the clicks it received.</h3>
@@ -213,6 +234,19 @@ export default function AddingInteractions() {
                             <h3>State as a Snapshot</h3>
                             <p style={{color:'red'}}> In this example, when you press “send”, setIsSent(true) tells React to re-render the UI:</p>    
                             <Form />
+                        </div>
+                        <div className="container my-2">
+                            <h3>Queuing a series of State Updates</h3>
+                            <p style={{color:'red'}}>
+                            if you would like to update the same state variable multiple times before the next render, instead of passing the next state value like setNumber(number + 1), you can pass a function that calculates the next state based on the previous one in the queue, like setNumber(n {"=>"} n + 1). It is a way to tell React to “do something with the state value” instead of just replacing it.    
+                            </p> <a href="https://react.dev/learn/queueing-a-series-of-state-updates#updating-the-same-state-multiple-times-before-the-next-render" target="__blank"><i className="text-primary">source here</i></a>
+                            <Counter />
+                            <Slider 
+                                items={[
+                                    "https://scontent.fmnl17-2.fna.fbcdn.net/v/t39.30808-6/344938281_1422463768500220_1724129367844132282_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=174925&_nc_eui2=AeH3-cNa2FOLH4DZfJBoXR11IhCTYvL1e1kiEJNi8vV7WZewrerBgZmKSjYQSAnFSbdmAD3uD1kIhXiTdByblqE1&_nc_ohc=4qpA3iYJqfkAX-7v1LT&_nc_ht=scontent.fmnl17-2.fna&oh=00_AfB4Io4uaUzaQV4sueQfDllMql6gRrUqxPEPo2GSyYssKA&oe=648661FC", "https://scontent.fmnl17-1.fna.fbcdn.net/v/t39.30808-6/344274486_6003667826354932_4560760461381389914_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=174925&_nc_eui2=AeHP5rA9qEWxORojo9JIrGUduNUEGLAiHqy41QQYsCIerKsV2_4U-Qz_WHXvjaHXZ1KzK95qjmzdCcfzCdtjeB78&_nc_ohc=DhyThpxKnxkAX_50kLl&_nc_oc=AQlE-3MeaRks9A7ja9KAAcXUWOAxkrfXEzZGd8WY_FxgtXJKucddLCPz9zNV349DVI8&_nc_ht=scontent.fmnl17-1.fna&oh=00_AfDHJ6PbmrbQU0ePMtAcjncxbZPaFNtdHVaDSukyqkwXXg&oe=64867925","https://scontent.fmnl17-2.fna.fbcdn.net/v/t39.30808-6/337263607_765394384836606_8484403153570980969_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=174925&_nc_eui2=AeFqmrIpXJNoJU1dUNCB-13hPmDDtnAXlY8-YMO2cBeVj48RWGUxLU-dU6-5AAKgfeSTQynhxnjI7C3-UZNB6-Uq&_nc_ohc=tFEzLECdAKIAX-zgCaB&_nc_ht=scontent.fmnl17-2.fna&oh=00_AfC_qtAXNmfJdgvOmgARpc2FMBnn6i3HmyKeiBe4xogf7Q&oe=6485E39B","https://scontent.fmnl17-2.fna.fbcdn.net/v/t39.30808-6/323439495_544011234327233_4402472482597882468_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=174925&_nc_eui2=AeFTCfpchWtzGpRSI_zHKlVLqalwAvaYhQGpqXAC9piFATIURstHNcekNrGhGAG1E9iW-GZbtdQ3A0lPJSaEInsr&_nc_ohc=tnYiQuLfTcoAX8O_zwV&_nc_oc=AQnd5pI54-Ipat0AcgUOrsYSEbC2CBQ1NcvK9Zxi5MPoDcy4BPoFAehGgdJ3N1ZhZaI&_nc_ht=scontent.fmnl17-2.fna&oh=00_AfC2uHSuJEw5oFpk3BiWJiUFmoP-gBtdDotT4otC2fNttg&oe=6485A40E","https://scontent.fmnl17-2.fna.fbcdn.net/v/t39.30808-6/344938281_1422463768500220_1724129367844132282_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=174925&_nc_eui2=AeH3-cNa2FOLH4DZfJBoXR11IhCTYvL1e1kiEJNi8vV7WZewrerBgZmKSjYQSAnFSbdmAD3uD1kIhXiTdByblqE1&_nc_ohc=4qpA3iYJqfkAX-7v1LT&_nc_ht=scontent.fmnl17-2.fna&oh=00_AfB4Io4uaUzaQV4sueQfDllMql6gRrUqxPEPo2GSyYssKA&oe=648661FC", "https://scontent.fmnl17-1.fna.fbcdn.net/v/t39.30808-6/344274486_6003667826354932_4560760461381389914_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=174925&_nc_eui2=AeHP5rA9qEWxORojo9JIrGUduNUEGLAiHqy41QQYsCIerKsV2_4U-Qz_WHXvjaHXZ1KzK95qjmzdCcfzCdtjeB78&_nc_ohc=DhyThpxKnxkAX_50kLl&_nc_oc=AQlE-3MeaRks9A7ja9KAAcXUWOAxkrfXEzZGd8WY_FxgtXJKucddLCPz9zNV349DVI8&_nc_ht=scontent.fmnl17-1.fna&oh=00_AfDHJ6PbmrbQU0ePMtAcjncxbZPaFNtdHVaDSukyqkwXXg&oe=64867925","https://scontent.fmnl17-2.fna.fbcdn.net/v/t39.30808-6/337263607_765394384836606_8484403153570980969_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=174925&_nc_eui2=AeFqmrIpXJNoJU1dUNCB-13hPmDDtnAXlY8-YMO2cBeVj48RWGUxLU-dU6-5AAKgfeSTQynhxnjI7C3-UZNB6-Uq&_nc_ohc=tFEzLECdAKIAX-zgCaB&_nc_ht=scontent.fmnl17-2.fna&oh=00_AfC_qtAXNmfJdgvOmgARpc2FMBnn6i3HmyKeiBe4xogf7Q&oe=6485E39B","https://scontent.fmnl17-2.fna.fbcdn.net/v/t39.30808-6/323439495_544011234327233_4402472482597882468_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=174925&_nc_eui2=AeFTCfpchWtzGpRSI_zHKlVLqalwAvaYhQGpqXAC9piFATIURstHNcekNrGhGAG1E9iW-GZbtdQ3A0lPJSaEInsr&_nc_ohc=tnYiQuLfTcoAX8O_zwV&_nc_oc=AQnd5pI54-Ipat0AcgUOrsYSEbC2CBQ1NcvK9Zxi5MPoDcy4BPoFAehGgdJ3N1ZhZaI&_nc_ht=scontent.fmnl17-2.fna&oh=00_AfC2uHSuJEw5oFpk3BiWJiUFmoP-gBtdDotT4otC2fNttg&oe=6485A40E"
+                                ]}
+                            />
+                            
                         </div>
                     </div>
                     <div className="col-lg-2 col-md-2 col-sm-12">

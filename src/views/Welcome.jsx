@@ -3,6 +3,7 @@ import '../assets/fontawesome/css/fontawesome.css';
 import '../assets/fontawesome/css/brands.css';
 import '../assets/fontawesome/css/solid.css';
 import Banner from '../components/Banner';
+import Projects from '../components/Projects';
 import { STEVEN } from '../data';
 const HOME = window.location.href;
 
@@ -35,6 +36,7 @@ export default function Welcome () {
                     </div>
                 </div>
             </div>
+            <Projects />
         </>
     );
 }
