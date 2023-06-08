@@ -8,7 +8,7 @@ let steven = STEVEN;
 export default function Navbar () {
     return (
         <>
-            <nav className="navbar navbar-expand-lg sticky-top" style={{ backgroundColor: "rgba(94, 203, 255, 1)" }}>
+            <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "rgba(94, 203, 255, 1)" }}>
                 <div className="container-fluid">
                     <a className="navbar-brand " href={'/'}>
                         <h6> <img src={Brand} alt="Steven" width={40} height={40}></img>  {steven.firstName}</h6>
