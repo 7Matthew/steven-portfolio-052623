@@ -5,21 +5,20 @@ import '../assets/fontawesome/css/solid.css';
 import Banner from '../components/Banner';
 import Projects from '../components/Projects';
 import { STEVEN } from '../data';
-const HOME = window.location.href;
 
 let steven = STEVEN;
 
 export default function Welcome () {
     return (
         <>
-            <div className="container-fluid">
+            <div className="container-fluid my-5">
                 <div className="row">
                     <div className="col-lg-6 col-md-12 col-sm-12 mt-5 header">
                         <div className="row mt-5 text-center">
                             <h1 className='introduction'> Hey, I am <b>{steven.firstName}</b></h1>
                             <h5>Fullstack Laravel Developer | React Developer</h5>
                             <h5>
-                            See my projects <a href={HOME}> <button type='button' className='btn btn-outline-secondary btn-md'> <b>Here!</b> </button> </a>
+                            See my projects <a href="#projects"> <button type='button' className='btn btn-outline-secondary btn-md'> <b>Here!</b> </button> </a>
                             </h5>
                         </div>
                         <div className="row mt-5 text-center">
