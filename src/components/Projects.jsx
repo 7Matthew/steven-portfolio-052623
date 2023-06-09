@@ -152,9 +152,11 @@ function Ocsr (){
                                     isSmall ? "col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center" : 
                                     isXSmall ? "col-lg-8 col-md-12 col-sm-12 col-xs-12 p-2 text-dark text-center" :
                                     "col-lg-4 col-md-12 col-sm-12 col-xs-12"}>
-                                    <button className="btn btn-dark btn-md p-2">
-                                        Take Me There <i className="fa fa-arrow-right"></i>
-                                    </button>
+                                        <a href="https://ocrs-online-course-subject-registration.000webhostapp.com/" target="__blank">
+                                            <button className="btn btn-dark btn-md p-2">
+                                                Take Me There <i className="fa fa-arrow-right"></i>
+                                            </button>
+                                        </a>
                                 </div>
                                 <div className="col-lg-8 col-md-12 col-sm-12 col-xs-12">
                                     <img src="https://ocrs-online-course-subject-registration.000webhostapp.com/img/ocsr.png" style={{width:"100%"}} alt="ocrs" />
