@@ -130,6 +130,7 @@ function Ocsr (){
                                 isLarge ? "row" : 
                                 isMedium ? "row text-center" : 
                                 isSmall ? "row text-center" : 
+                                isXSmall ? "row text-center" : 
                                 "row"}> 
                                 <h1><i className="fa-solid fa-calendar-days fa-lg"></i></h1>
                                 <div className={ 
