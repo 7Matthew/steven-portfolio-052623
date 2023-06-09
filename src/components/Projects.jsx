@@ -2,6 +2,7 @@ import AOS from "aos";
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
 
+const isXSmall = (window.innerWidth < 576);
 const isSmall = (window.innerWidth >= 576) && (window.innerWidth <= 767);
 const isMedium = (window.innerWidth >= 768) && (window.innerWidth <= 991);
 const isLarge = (window.innerWidth >= 992) && (window.innerWidth <= 1199);
@@ -135,6 +136,7 @@ function Ocsr (){
                                     isLarge ? "col-lg-8 col-md-12 col-sm-12 col-xs-12 p-2 text-dark " : 
                                     isMedium ? "col-lg-8 col-md-12 col-sm-12 col-xs-12 p-2 text-dark text-center" : 
                                     isSmall ? "col-lg-8 col-md-12 col-sm-12 col-xs-12 p-2 text-dark text-center" : 
+                                    isXSmall ? "col-lg-8 col-md-12 col-sm-12 col-xs-12 p-2 text-dark text-center" :
                                     "col-lg-8 col-md-12 col-sm-12 col-xs-12 p-2 text-dark " }>
                                     <h1>Online Course Subject Registration</h1>
                                 </div>
@@ -147,6 +149,7 @@ function Ocsr (){
                                     isLarge ? "col-lg-4 col-md-12 col-sm-12 col-xs-12" : 
                                     isMedium ? "col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center" : 
                                     isSmall ? "col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center" : 
+                                    isXSmall ? "col-lg-8 col-md-12 col-sm-12 col-xs-12 p-2 text-dark text-center" :
                                     "col-lg-4 col-md-12 col-sm-12 col-xs-12"}>
                                     <button className="btn btn-dark btn-md p-2">
                                         Take Me There <i className="fa fa-arrow-right"></i>
