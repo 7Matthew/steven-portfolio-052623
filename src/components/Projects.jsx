@@ -124,7 +124,7 @@ function Ocsr (){
         <>
              <div className="container my-5 project rounded p-3 bg-transparent">
                 <div className="row ">
-                    <div className="col me-3">
+                    <div className="col me-3" data-aos="fade-right">
                         <div className="container bg-info-subtle rounded pt-5 p-5" style={{ backgroundColor: "rgba(94, 203, 255, 1)"}}>
                             <div className={
                                 isLarge ? "row" : 
@@ -166,7 +166,7 @@ function Ocsr (){
                     </div>
                     <div className="col-lg-6 me-3">
                         <div className="container-fluid rounded">
-                            <div className="row my-3 p-2">
+                            <div className="row my-3 p-2" data-aos="fade-up" delay="300">
                                 <div className="col-lg-9 col-md-12 col-sm-12 col-xs-9 bg-danger-subtle rounded-end p-4 mb-3 text-center">
                                     <h3>Create</h3>
                                 </div>
@@ -174,7 +174,7 @@ function Ocsr (){
                                     <h1 className=" border border-1 border-dark rounded p-3"><i className="fa-solid fa-pen-nib fa-lg text-danger"></i></h1>
                                 </div>
                             </div>
-                            <div className="row my-5 p-2">
+                            <div className="row my-5 p-2" data-aos="fade-down" delay="500">
                                 <div className="col-lg-3 text-center">
                                     <h1 className=" border border-1 border-dark rounded p-3"><i className="fa-regular fa-eye fa-lg text-success"></i></h1>
                                 </div>
@@ -182,7 +182,7 @@ function Ocsr (){
                                     <h3>View</h3>
                                 </div>
                             </div>
-                            <div className="row my-5 p-2">
+                            <div className="row my-5 p-2" data-aos="fade-up" delay="700">
                                 <div className="col-lg-9 col-md-12 col-sm-12 col-xs-9 bg-info-subtle rounded-end p-4 mb-3 text-center">
                                     <h3>Update  </h3>
                                 </div>
@@ -190,7 +190,7 @@ function Ocsr (){
                                     <h1 className=" border border-1 border-dark rounded p-3"><i className="text-info fa-solid fa-pen-to-square fa-lg"></i></h1>
                                 </div>
                             </div>
-                            <div className="row my-5 p-2">
+                            <div className="row my-5 p-2" data-aos="fade-up" delay="900">
                                 <div className="col-lg-3 text-center">
                                     <h1 className=" border border-1 border-dark rounded p-3"><i className="text-primary fa-regular fa-calendar fa-lg"></i></h1>
                                 </div>
@@ -198,7 +198,6 @@ function Ocsr (){
                                     <h3>Schedule</h3>
                                 </div>
                             </div>
-                            
                         </div>
                     </div>
                 </div>
