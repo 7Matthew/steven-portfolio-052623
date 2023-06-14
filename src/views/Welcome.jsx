@@ -20,7 +20,7 @@ export default function Welcome () {
                     <div className="col-lg-6 col-md-12 col-sm-12 mt-5 header">
                         <div className="row mt-5 text-center">
                             <h1 className='introduction'> Hey, I am <b>{steven.firstName}</b></h1>
-                            <h5>I am a passionate web developer dedicated <br/> to delivering innovative solutions</h5>
+                            <h5>I am a passionate Web Developer dedicated <br/> to delivering innovative solutions</h5>
                             <h5>
                             See my projects <a href="#projects"> <button type='button' className='btn btn-outline-secondary btn-md'> <b>Here!</b> </button> </a>
                             </h5>
