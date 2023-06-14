@@ -6,7 +6,7 @@ export default function Svgs(){
     );
 }
 
-export function HtmlSvg({size="100px"}){
+export function HtmlSvg({size="70px"}){
     return(
         <>
             <svg
@@ -31,7 +31,7 @@ export function HtmlSvg({size="100px"}){
         </>
     );
 }
-export function CssSvg({size="100px"}){
+export function CssSvg({size="70px"}){
     return(
         <>
             <svg
@@ -64,7 +64,7 @@ export function CssSvg({size="100px"}){
         </>
     );
 }
-export function JavascriptSvg({size="100px"}){
+export function JavascriptSvg({size="70px"}){
     return(
         <>
             <svg
@@ -92,7 +92,7 @@ export function JavascriptSvg({size="100px"}){
         </>
     );
 }
-export function BootstrapSvg({size="100px"}){
+export function BootstrapSvg({size="70px"}){
     return(
         <>
             <svg
@@ -129,7 +129,7 @@ export function BootstrapSvg({size="100px"}){
         </>
     );
 }
-export function FontawesomeSvg({size="100px"}){
+export function FontawesomeSvg({size="70px"}){
     return(
         <>
             <svg
@@ -150,7 +150,7 @@ export function FontawesomeSvg({size="100px"}){
         </>
     );
 }
-export function JquerySvg({size="100px"}){
+export function JquerySvg({size="70px"}){
     return(
         <>
             <svg
@@ -232,7 +232,7 @@ export function JquerySvg({size="100px"}){
         </>
     );
 }
-export function JavaSvg({size="100px"}){
+export function JavaSvg({size="70px"}){
     return(
         <>
             <svg
@@ -284,7 +284,7 @@ export function JavaSvg({size="100px"}){
         </>
     );
 }
-export function LaravelSvg({size="100px"}){
+export function LaravelSvg({size="70px"}){
     return(
         <>
             <svg
@@ -309,7 +309,7 @@ export function LaravelSvg({size="100px"}){
         </>
     );
 }
-export function ReactSvg({size="100px"}){
+export function ReactSvg({size="70px"}){
     return(
         <>
             <svg
@@ -339,7 +339,7 @@ export function ReactSvg({size="100px"}){
         </>
     );
 }
-export function GithubSvg({size="100px"}){
+export function GithubSvg({size="70px"}){
     return(
         <>
             <svg
@@ -382,7 +382,7 @@ export function GithubSvg({size="100px"}){
         </>
     );
 }   
-export function MySqlSvg({size="100px"}){
+export function MySqlSvg({size="70px"}){
     return(
         <>
             <svg
@@ -418,7 +418,7 @@ export function MySqlSvg({size="100px"}){
         </>
     );
 }   
-export function XamppSvg({size="100px"}){
+export function XamppSvg({size="70px"}){
     return(
         <>
            <svg

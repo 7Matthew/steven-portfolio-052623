@@ -135,43 +135,43 @@ function Technologies (){
             </div>
             <div className="row text-center mt-5">
                 <div className="col">
-                    <BootstrapSvg size="70px"/>
+                    <BootstrapSvg />
                     <h3><b>Bootstrap</b></h3>
                 </div>
                 <div className="col">
-                    <FontawesomeSvg size="70px"/>
+                    <FontawesomeSvg />
                     <h3><b>Fontawesome</b></h3>
                 </div>
                 <div className="col">
-                    <JquerySvg size="70px"/>
+                    <JquerySvg />
                     <h3><b>JQuery</b></h3>
                 </div>
             </div>
             <div className="row text-center mt-5">
                 <div className="col">
-                    <JavaSvg size="70px"/>
+                    <JavaSvg />
                     <h3><b>Java</b></h3>
                 </div>
                 <div className="col">
-                    <LaravelSvg size="70px"/>
+                    <LaravelSvg />
                     <h3><b>Laravel</b></h3>
                 </div>
                 <div className="col">
-                    <ReactSvg size="70px"/>
+                    <ReactSvg />
                     <h3><b>React</b></h3>
                 </div>
             </div>
             <div className="row text-center mt-5">
                 <div className="col">
-                    <GithubSvg size="70px"/>
+                    <GithubSvg />
                     <h3><b>Github</b></h3>
                 </div>
                 <div className="col">
-                    <MySqlSvg size="70px"/>
+                    <MySqlSvg />
                     <h3><b>MySQL</b></h3>
                 </div>
                 <div className="col">
-                    <XamppSvg size="70px"/>
+                    <XamppSvg />
                     <h3><b>Xampp</b></h3>
                 </div>
             </div>
