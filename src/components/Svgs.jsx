@@ -64,7 +64,7 @@ export function CssSvg({size="70px"}){
         </>
     );
 }
-export function JavascriptSvg({size="70px"}){
+export function JavascriptSvg({size="50px"}){
     return(
         <>
             <svg
@@ -92,7 +92,7 @@ export function JavascriptSvg({size="70px"}){
         </>
     );
 }
-export function BootstrapSvg({size="70px"}){
+export function BootstrapSvg({size="50px"}){
     return(
         <>
             <svg
@@ -129,7 +129,7 @@ export function BootstrapSvg({size="70px"}){
         </>
     );
 }
-export function FontawesomeSvg({size="70px"}){
+export function FontawesomeSvg({size="50px"}){
     return(
         <>
             <svg
