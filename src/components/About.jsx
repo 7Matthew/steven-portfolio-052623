@@ -144,7 +144,7 @@ function Technologies (){
                 </div>
                 <div className="col">
                     <JquerySvg />
-                    <h3><b>JQuery</b></h3>
+                    <h3><b>Jquery</b></h3>
                 </div>
             </div>
             <div className="row text-center mt-5">
