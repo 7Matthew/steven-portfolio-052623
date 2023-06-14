@@ -1,32 +1,21 @@
-import AOS from "aos";
-import 'aos/dist/aos.css';
-import { useEffect } from "react";
 
-const isXSmall = (window.innerWidth < 576);
-const isSmall = (window.innerWidth >= 576) && (window.innerWidth <= 767);
-const isMedium = (window.innerWidth >= 768) && (window.innerWidth <= 991);
-const isLarge = (window.innerWidth >= 992) && (window.innerWidth <= 1199);
+import Divider from "./Divider";
+
+export const isXSmall = (window.innerWidth < 576);
+export const isSmall = (window.innerWidth >= 576) && (window.innerWidth <= 767);
+export const isMedium = (window.innerWidth >= 768) && (window.innerWidth <= 991);
+export const isLarge = (window.innerWidth >= 992) && (window.innerWidth <= 1199);
 
 export default function Projects(){
-    useEffect(() => {
-        AOS.init({
-            duration: 1500, // values from 0 to 3000, with step 50ms
-            easing: 'ease',
-        });
-      }, []);
-    
     return(
         <>
-            <div className="container-fluid">
-                <div className="row text-center bg-info-subtle p-3" >
-                    <h1 style={{fontSize:"60px", fontWeight:'bolder'}}><b>MY PROJECTS</b></h1>
-                </div>
-            </div>
+            <Divider title ="MY PROJECTS"/>
             <Nonongs />
             <Ocsr />
         </>
     );
 }
+
 
 function Nonongs(){
     return (

@@ -15,8 +15,7 @@ export default function Banner({source}) {
                   <stop offset="0%" style={{ stopColor: "rgb(94, 203, 255)" }} />
                   <stop offset="100%" style={{ stopColor: "rgb(255, 255, 255)" }} />
                 </linearGradient>
-                <defs>
-                </defs>
+
               </defs>
               <path fill="url(#gradient)" opacity={.9}> 
                 <animate attributeName='d' dur={'20s'} repeatCount={'indefinite'} values='M434,309.5Q435,369,391.5,417Q348,465,285,456Q222,447,178.5,415Q135,383,87.5,347.5Q40,312,37.5,249.5Q35,187,76,142Q117,97,167.5,64Q218,31,277.5,45.5Q337,60,384,96.5Q431,133,432,191.5Q433,250,434,309.5Z; 

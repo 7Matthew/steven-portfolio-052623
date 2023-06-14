@@ -2,6 +2,7 @@ import '../assets/css/style.css';
 import '../assets/fontawesome/css/fontawesome.css';
 import '../assets/fontawesome/css/brands.css';
 import '../assets/fontawesome/css/solid.css';
+import About from '../components/About';
 import Banner from '../components/Banner';
 import Projects from '../components/Projects';
 import { STEVEN } from '../data';
@@ -10,13 +11,16 @@ let steven = STEVEN;
 
 export default function Welcome () {
     return (
-        <>
-            <div className="container-fluid my-5">
+        <>  
+            <div className="container p-1" id="top">
+
+            </div>
+            <div className="container-fluid my-5" id="top" data-bs-offset="5">
                 <div className="row">
                     <div className="col-lg-6 col-md-12 col-sm-12 mt-5 header">
                         <div className="row mt-5 text-center">
                             <h1 className='introduction'> Hey, I am <b>{steven.firstName}</b></h1>
-                            <h5>Fullstack Laravel Developer | React Developer</h5>
+                            <h5>I am a passionate web developer dedicated <br/> to delivering innovative solutions</h5>
                             <h5>
                             See my projects <a href="#projects"> <button type='button' className='btn btn-outline-secondary btn-md'> <b>Here!</b> </button> </a>
                             </h5>
@@ -35,7 +39,9 @@ export default function Welcome () {
                     </div>
                 </div>
             </div>
+            <About />
             <Projects />
+            
         </>
     );
 }

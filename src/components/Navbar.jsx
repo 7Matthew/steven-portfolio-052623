@@ -22,19 +22,13 @@ export default function Navbar () {
                         </div>
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0 justify-content-end">
                             <li className="nav-item">
-                                <NavLink to="/welcome" className={({ isActive, isPending }) => isPending ? "nav-link text-white pending" : isActive ? "nav-link text-white active" : "nav-link" } >
-                                    Home
-                                </NavLink>
+                                <a href="/welcome#top" className='nav-link'>Home</a>
                             </li>
                             <li className="nav-item">
-                                <NavLink to="/about-me" className={({ isActive, isPending }) => isPending ? "nav-link text-white pending" : isActive ? "nav-link text-white active" : "nav-link" } >
-                                    About me
-                                </NavLink>
+                                <a href="/welcome#about-me" className='nav-link'>About</a>
                             </li>
                             <li className="nav-item">
-                                <NavLink to="/projects" className={({ isActive, isPending }) => isPending ? "nav-link text-white pending" : isActive ? "nav-link text-white active" : "nav-link" } >
-                                    Projects
-                                </NavLink>
+                               <a href="/welcome#projects" className='nav-link'> Projects </a>
                             </li>
                             <li className="nav-item">
                                 <NavLink to="/contact-me" className={({ isActive, isPending }) => isPending ? "nav-link text-white pending" : isActive ? "nav-link text-white active" : "nav-link" } >
