@@ -114,12 +114,12 @@ function Experiences (){
 function Technologies (){
     return (
         <>
-            <div className="row mt-3">
+            <div className="row mt-3" data-aos="fade-left">
                 <div className="col-lg-12 text-center mt-5">
                     <h1><b>Technologies</b></h1>
                 </div>
             </div>
-            <div className="row text-center mt-5">
+            <div className="row text-center mt-5" data-aos="fade-left">
                 <div className="col">
                     <HtmlSvg />
                     <h3><b>HTML</b></h3>
@@ -133,7 +133,7 @@ function Technologies (){
                     <h3><b>JavaScript</b></h3>
                 </div>
             </div>
-            <div className="row text-center mt-5">
+            <div className="row text-center mt-5" data-aos="fade-left">
                 <div className="col">
                     <BootstrapSvg />
                     <h3><b>Bootstrap</b></h3>
@@ -147,7 +147,7 @@ function Technologies (){
                     <h3><b>Jquery</b></h3>
                 </div>
             </div>
-            <div className="row text-center mt-5">
+            <div className="row text-center mt-5" data-aos="fade-left">
                 <div className="col">
                     <JavaSvg />
                     <h3><b>Java</b></h3>
@@ -161,7 +161,7 @@ function Technologies (){
                     <h3><b>React</b></h3>
                 </div>
             </div>
-            <div className="row text-center mt-5">
+            <div className="row text-center mt-5" data-aos="fade-left">
                 <div className="col">
                     <GithubSvg />
                     <h3><b>Github</b></h3>

@@ -3,6 +3,7 @@ import '../assets/fontawesome/css/fontawesome.css';
 import '../assets/fontawesome/css/brands.css';
 import '../assets/fontawesome/css/solid.css';
 import About from '../components/About';
+import Contact from '../components/Contact';
 import Banner from '../components/Banner';
 import Projects from '../components/Projects';
 import { STEVEN } from '../data';
@@ -15,6 +16,18 @@ export default function Welcome () {
             <div className="container p-1" id="top">
 
             </div>
+            <HeroSection />
+            <About />
+            <Projects />
+            <Contact />
+            
+        </>
+    );
+}
+
+function HeroSection(){
+    return(
+        <>
             <div className="container-fluid my-5" id="top" data-bs-offset="5">
                 <div className="row">
                     <div className="col-lg-6 col-md-12 col-sm-12 mt-5 header">
@@ -39,10 +52,6 @@ export default function Welcome () {
                     </div>
                 </div>
             </div>
-            <About />
-            <Projects />
-            
         </>
     );
 }
-

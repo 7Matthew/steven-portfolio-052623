@@ -1,109 +1,7 @@
 import { useState } from "react";
 import { foods } from "./food_items";
 import Slider from "../components/Slider";
-
-function Button ({className}){
-    const [clicks, setClicks] = useState(0);  
-
-    function handleClick(){
-        return setClicks(clicks + 1);
-    }
-    return (
-        <>
-            <button className={className} onClick={handleClick}>
-                Click count:  {clicks}
-            </button>
-        </>
-    );
-
-}
-
-function Clicker({ onClick, children }) {
-    return (
-      <button className="btn btn-outline-primary btn-sm me-2" onClick={e => {
-        e.stopPropagation(); // stop propagation
-        onClick();
-      }}>
-        {children}
-      </button>
-    );
-}
-
-function Toolbar() {
-    return (
-      <div className="Toolbar" onClick={() => {
-        alert('You clicked on the toolbar!');
-      }}>
-        <Clicker onClick={() => alert('Playing!')}>
-          Play Movie
-        </Clicker>
-        <Clicker onClick={() => alert('Uploading!')}>
-          Upload Image
-        </Clicker>
-      </div>
-    );
-  }
-
-function InputQuantity ({value}){
-   
-    return(
-        <>
-            <input type="number" className="form-control my-2 me-2"  value={value} readOnly></input>
-        </>
-    );
-}
-
-function Form() {
-    const [isSent, setIsSent] = useState(false);
-    const [message, setMessage] = useState('Hi!');
-
-    if (isSent) {
-      return <h1>Your message is on its way!</h1>
-    }
-
-    return (
-      <form onSubmit={(e) => {
-        e.preventDefault();
-        setIsSent(true);
-        sendMessage(message);
-      }}>
-        <textarea
-          className="form-control"
-          placeholder="Message"
-          value={message}
-          onChange={e => setMessage(e.target.value)}
-        />
-        <button type="submit" className="btn btn-primary btn-sm mt-5">Send</button>
-      </form>
-    );
-}
-
-function sendMessage(message) {
-    // ...
-}
-
-function Counter() {
-    const [number, setNumber] = useState(0);
-    /**
-     * ! To summarize, here’s how you can think of what you’re passing to the setNumber state setter:
-    *  ! An updater function (e.g. n => n + 1) gets added to the queue. Any other value (e.g. number 5) adds “replace with 5” to the queue, ignoring what’s already queued.
-     */
-    return (
-      <>
-        <h1>{number}</h1>
-        <button onClick={() => {
-          setNumber(n => n + 1);
-          setNumber(n => n + 1);
-          setNumber(n => n + 1);
-        }}>+3</button>
-        <div className="progress" role="progressbar" aria-label="Basic example" aria-valuenow={number} aria-valuemin="0" aria-valuemax="100" style={{height:20  }}>
-            <div className="progress-bar" style={{width:number + '%'}}></div>
-        </div>
-      </>
-    )
-  }
-
-
+import { useImmer } from 'use-immer';
 
 export default function AddingInteractions() {
     const [quantity, setQuantity] = useState(0);
@@ -223,8 +121,8 @@ export default function AddingInteractions() {
                         <div className="container my-2">
                             <p style={{color:'red'}}> preventDefault() function prevents the default behavior of an element. in this case, it prevents the default behavior of the form that is refreshing the page when submitted</p>
                             <form onSubmit={e => {
-                            e.preventDefault(); // 
-                            alert('Submitting!');
+                                e.preventDefault(); // 
+                                alert('Submitting!');
                             }}>
                                 <input type="text" placeholder="Input anything" className="form-control" />
                                 <button type="submit" className="btn btn-outline-success btn-sm m-2">Send</button>
@@ -246,7 +144,15 @@ export default function AddingInteractions() {
                                     "https://scontent.fmnl17-2.fna.fbcdn.net/v/t39.30808-6/344938281_1422463768500220_1724129367844132282_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=174925&_nc_eui2=AeH3-cNa2FOLH4DZfJBoXR11IhCTYvL1e1kiEJNi8vV7WZewrerBgZmKSjYQSAnFSbdmAD3uD1kIhXiTdByblqE1&_nc_ohc=4qpA3iYJqfkAX-7v1LT&_nc_ht=scontent.fmnl17-2.fna&oh=00_AfB4Io4uaUzaQV4sueQfDllMql6gRrUqxPEPo2GSyYssKA&oe=648661FC", "https://scontent.fmnl17-1.fna.fbcdn.net/v/t39.30808-6/344274486_6003667826354932_4560760461381389914_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=174925&_nc_eui2=AeHP5rA9qEWxORojo9JIrGUduNUEGLAiHqy41QQYsCIerKsV2_4U-Qz_WHXvjaHXZ1KzK95qjmzdCcfzCdtjeB78&_nc_ohc=DhyThpxKnxkAX_50kLl&_nc_oc=AQlE-3MeaRks9A7ja9KAAcXUWOAxkrfXEzZGd8WY_FxgtXJKucddLCPz9zNV349DVI8&_nc_ht=scontent.fmnl17-1.fna&oh=00_AfDHJ6PbmrbQU0ePMtAcjncxbZPaFNtdHVaDSukyqkwXXg&oe=64867925","https://scontent.fmnl17-2.fna.fbcdn.net/v/t39.30808-6/337263607_765394384836606_8484403153570980969_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=174925&_nc_eui2=AeFqmrIpXJNoJU1dUNCB-13hPmDDtnAXlY8-YMO2cBeVj48RWGUxLU-dU6-5AAKgfeSTQynhxnjI7C3-UZNB6-Uq&_nc_ohc=tFEzLECdAKIAX-zgCaB&_nc_ht=scontent.fmnl17-2.fna&oh=00_AfC_qtAXNmfJdgvOmgARpc2FMBnn6i3HmyKeiBe4xogf7Q&oe=6485E39B","https://scontent.fmnl17-2.fna.fbcdn.net/v/t39.30808-6/323439495_544011234327233_4402472482597882468_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=174925&_nc_eui2=AeFTCfpchWtzGpRSI_zHKlVLqalwAvaYhQGpqXAC9piFATIURstHNcekNrGhGAG1E9iW-GZbtdQ3A0lPJSaEInsr&_nc_ohc=tnYiQuLfTcoAX8O_zwV&_nc_oc=AQnd5pI54-Ipat0AcgUOrsYSEbC2CBQ1NcvK9Zxi5MPoDcy4BPoFAehGgdJ3N1ZhZaI&_nc_ht=scontent.fmnl17-2.fna&oh=00_AfC2uHSuJEw5oFpk3BiWJiUFmoP-gBtdDotT4otC2fNttg&oe=6485A40E","https://scontent.fmnl17-2.fna.fbcdn.net/v/t39.30808-6/344938281_1422463768500220_1724129367844132282_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=174925&_nc_eui2=AeH3-cNa2FOLH4DZfJBoXR11IhCTYvL1e1kiEJNi8vV7WZewrerBgZmKSjYQSAnFSbdmAD3uD1kIhXiTdByblqE1&_nc_ohc=4qpA3iYJqfkAX-7v1LT&_nc_ht=scontent.fmnl17-2.fna&oh=00_AfB4Io4uaUzaQV4sueQfDllMql6gRrUqxPEPo2GSyYssKA&oe=648661FC", "https://scontent.fmnl17-1.fna.fbcdn.net/v/t39.30808-6/344274486_6003667826354932_4560760461381389914_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=174925&_nc_eui2=AeHP5rA9qEWxORojo9JIrGUduNUEGLAiHqy41QQYsCIerKsV2_4U-Qz_WHXvjaHXZ1KzK95qjmzdCcfzCdtjeB78&_nc_ohc=DhyThpxKnxkAX_50kLl&_nc_oc=AQlE-3MeaRks9A7ja9KAAcXUWOAxkrfXEzZGd8WY_FxgtXJKucddLCPz9zNV349DVI8&_nc_ht=scontent.fmnl17-1.fna&oh=00_AfDHJ6PbmrbQU0ePMtAcjncxbZPaFNtdHVaDSukyqkwXXg&oe=64867925","https://scontent.fmnl17-2.fna.fbcdn.net/v/t39.30808-6/337263607_765394384836606_8484403153570980969_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=174925&_nc_eui2=AeFqmrIpXJNoJU1dUNCB-13hPmDDtnAXlY8-YMO2cBeVj48RWGUxLU-dU6-5AAKgfeSTQynhxnjI7C3-UZNB6-Uq&_nc_ohc=tFEzLECdAKIAX-zgCaB&_nc_ht=scontent.fmnl17-2.fna&oh=00_AfC_qtAXNmfJdgvOmgARpc2FMBnn6i3HmyKeiBe4xogf7Q&oe=6485E39B","https://scontent.fmnl17-2.fna.fbcdn.net/v/t39.30808-6/323439495_544011234327233_4402472482597882468_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=174925&_nc_eui2=AeFTCfpchWtzGpRSI_zHKlVLqalwAvaYhQGpqXAC9piFATIURstHNcekNrGhGAG1E9iW-GZbtdQ3A0lPJSaEInsr&_nc_ohc=tnYiQuLfTcoAX8O_zwV&_nc_oc=AQnd5pI54-Ipat0AcgUOrsYSEbC2CBQ1NcvK9Zxi5MPoDcy4BPoFAehGgdJ3N1ZhZaI&_nc_ht=scontent.fmnl17-2.fna&oh=00_AfC2uHSuJEw5oFpk3BiWJiUFmoP-gBtdDotT4otC2fNttg&oe=6485A40E"
                                 ]}
                             />
-                            
+                        </div>
+                        <div className="container my-5">
+                            <h3>Updating Objects in State</h3>
+                            <h5>Copying Object Using Spread (Shallow) </h5>
+                            <CopyingObjectUsingSpread />
+                            <h5>Copying Object Using Spread (Nested) </h5>
+                            <CopyNestedObjectUsingSpread />
+                            <h5>Copying Object Using Immer  </h5>
+                            <CopyNestedObjectsUsingImmer />
                         </div>
                     </div>
                     <div className="col-lg-2 col-md-2 col-sm-12">
@@ -256,3 +162,334 @@ export default function AddingInteractions() {
         </>
     );
 }
+
+function CopyNestedObjectsUsingImmer(){
+    const [person, updatePerson] = useImmer({
+        name: 'Niki de Saint Phalle',
+        artwork: {
+        title: 'Blue Nana',
+        city: 'Hamburg',
+        image: 'https://i.imgur.com/Sd1AgUOm.jpg',
+        }
+    });
+    
+    function handleNameChange(e) {
+        updatePerson(draft => {
+            draft.name = e.target.value;
+        });
+    }
+
+    function handleTitleChange(e) {
+        updatePerson(draft => {
+            draft.artwork.title = e.target.value;
+        });
+    }
+
+    function handleCityChange(e) {
+        updatePerson(draft => {
+        draft.artwork.city = e.target.value;
+        });
+    }
+
+    function handleImageChange(e) {
+        updatePerson(draft => {
+        draft.artwork.image = e.target.value;
+        });
+    }
+    
+    return (
+        <>
+            <label className="form-label me-2">
+                Name:
+                <input
+                    className="form-control"
+                    value={person.name}
+                    onChange={handleNameChange}
+                />
+            </label>
+            <label className="form-label me-2">
+                Title:
+                <input
+                    className="form-control"
+                    value={person.artwork.title}
+                    onChange={handleTitleChange}
+                />
+            </label>
+            <label className="form-label me-2">
+                City:
+                <input
+                    className="form-control"
+                    value={person.artwork.city}
+                    onChange={handleCityChange}
+                />
+            </label>
+            <label className="form-label me-2">
+                Image:
+                <input
+                    className="form-control"
+                    value={person.artwork.image}
+                    onChange={handleImageChange}
+                />
+            </label>
+            <p>
+                <i>{person.artwork.title}</i>
+                {' by '}
+                {person.name}
+                <br />
+                (located in {person.artwork.city})
+            </p>
+            <img 
+            src={person.artwork.image} 
+            alt={person.artwork.title}
+            />
+        </>
+    )
+}
+
+function CopyNestedObjectUsingSpread(){
+    const [person, setPerson] =useState({ 
+        name: 'Steven Matthew',
+        artwork: {
+            title: 'Taguig',
+            city: 'Taguig',
+            image: 'https://i.imgur.com/Sd1AgUOm.jpg'
+        }
+    });
+    // ! TO Copy a nested Object, you have to do this: 
+    // ! const newArtwork = {...person.artwork, city:"New Delhi"};
+    // ! const newPerson = {...person, artwork: newArtwork};
+
+    function handleNameChange(e) {
+        setPerson({
+          ...person,
+          [e.target.name]: e.target.value
+        });
+    }
+    
+    function handleArtChange(e){
+        setPerson({
+            ...person, 
+            artwork: {
+                ...person.artwork,
+                [e.target.name]: e.target.value
+            }
+        });
+    }
+    
+    return (
+        <>
+            <label className="form-label me-2">
+                Name: <Required />
+                <input
+                className="form-control bg-secondary-subtle"
+                name="name"
+                value={person.name}
+                onChange={handleNameChange}
+                />
+            </label>
+            <label className="form-label me-2">
+                Title: <Required />
+                <input
+                className="form-control bg-secondary-subtle"
+                name="title"
+                value={person.artwork.title}
+                onChange={handleArtChange}
+                />
+            </label>
+            <label className="form-label me-2">
+                City: <Required />
+                <input
+                className="form-control bg-secondary-subtle"
+                name="city"
+                value={person.artwork.city}
+                onChange={handleArtChange}
+                />
+            </label>
+            <label className="form-label me-2">
+                Image: <Required />
+                <input
+                className="form-control bg-secondary-subtle"
+                name="image"
+                value={person.artwork.image}
+                onChange={handleArtChange}
+                />
+            </label>
+            <p>
+                <i>{person.artwork.title}</i>
+                {' by '}
+                {person.name}
+                <br />
+                (located in {person.artwork.city})
+            </p>
+            <img 
+                src={person.artwork.image} 
+                alt={person.artwork.title}
+                className="image "
+            />
+        </>
+    );
+}
+
+function Required(){
+    return(
+        <>
+            <b className="text-danger">*</b>
+        </>
+    );
+}
+
+function Button ({className}){
+    const [clicks, setClicks] = useState(0);  
+
+    function handleClick(){
+        return setClicks(clicks + 1);
+    }
+    return (
+        <>
+            <button className={className} onClick={handleClick}>
+                Click count:  {clicks}
+            </button>
+        </>
+    );
+
+}
+
+function Clicker({ onClick, children }) {
+    return (
+      <button className="btn btn-outline-primary btn-sm me-2" onClick={e => {
+        e.stopPropagation(); // stop propagation
+        onClick();
+      }}>
+        {children}
+      </button>
+    );
+}
+
+function Toolbar() {
+    return (
+      <div className="Toolbar" onClick={() => {
+        alert('You clicked on the toolbar!');
+      }}>
+        <Clicker onClick={() => alert('Playing!')}>
+          Play Movie
+        </Clicker>
+        <Clicker onClick={() => alert('Uploading!')}>
+          Upload Image
+        </Clicker>
+      </div>
+    );
+  }
+
+function InputQuantity ({value}){
+   
+    return(
+        <>
+            <input type="number" className="form-control my-2 me-2"  value={value} readOnly></input>
+        </>
+    );
+}
+
+function Form() {
+    const [isSent, setIsSent] = useState(false);
+    const [message, setMessage] = useState('Hi!');
+
+    if (isSent) {
+      return <h1>Your message is on its way!</h1>
+    }
+
+    return (
+      <form onSubmit={(e) => {
+        e.preventDefault();
+        setIsSent(true);
+        sendMessage(message);
+      }}>
+        <textarea
+          className="form-control"
+          placeholder="Message"
+          value={message}
+          onChange={e => setMessage(e.target.value)}
+        />
+        <button type="submit" className="btn btn-primary btn-sm mt-5">Send</button>
+      </form>
+    );
+}
+
+function sendMessage(message) {
+    // ...
+}
+
+function Counter() {
+    const [number, setNumber] = useState(0);
+    /**
+     * ! To summarize, here’s how you can think of what you’re passing to the setNumber state setter:
+    *  ! An updater function (e.g. n => n + 1) gets added to the queue. Any other value (e.g. number 5) adds “replace with 5” to the queue, ignoring what’s already queued.
+     */
+    return (
+      <>
+        <h1>{number}</h1>
+        <button onClick={() => {
+          setNumber(n => n + 1);
+          setNumber(n => n + 1);
+          setNumber(n => n + 1);
+        }}>+3</button>
+        <div className="progress" role="progressbar" aria-label="Basic example" aria-valuenow={number} aria-valuemin="0" aria-valuemax="100" style={{height:20  }}>
+            <div className="progress-bar" style={{width:number + '%'}}></div>
+        </div>
+      </>
+    )
+  }
+
+function CopyingObjectUsingSpread() {
+    const [person, setPerson] = useState({
+        firstName: 'Barbara',
+        lastName: 'Hepworth',
+        email: 'bhepworth@sculpture.com'
+    });
+  
+    function handleChange(e) {
+        setPerson({
+          ...person,
+          [e.target.name]: e.target.value
+        });
+    }
+
+    return (
+      <>
+        <label className="form-label m-3">
+            First name:
+            <input
+                name="firstName"
+                className="form-control"
+                value={person.firstName}
+                onChange={handleChange}
+            />
+        </label>
+        <label className="form-label m-3">
+            Last name:
+            <input
+                name="lastName"
+                className="form-control"
+                value={person.lastName}
+                onChange={handleChange}
+            />
+        </label>
+        <label className="form-label m-3">
+            Email:
+            <input
+                name="email"
+                className="form-control"
+                value={person.email}
+                onChange={handleChange}
+            />
+        </label>
+        <p>
+            {person.firstName}{' '}
+            {person.lastName}{' '}
+            ({person.email})
+        </p>
+      </>
+    );
+}
+  
+
+
