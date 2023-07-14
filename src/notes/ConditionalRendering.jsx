@@ -31,12 +31,12 @@ export default function ConditionalRendering (){
     return (
         <>
             <div className="container my-4">
-                <div className="row">
+                <div className="row mt-5">
                     <div className="col-lg-2 col-md-2 col-sm-12">
 
                     </div>
                     <div className="col">
-                        <div className="card">
+                        <div className="card mt-5">
                             <div className="card-header bg-transparent">
                                 <h4>Avatars</h4>
                             </div>

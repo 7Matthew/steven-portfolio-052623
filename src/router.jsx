@@ -8,6 +8,8 @@ import Errors from "./error-page/Errors-page";
 import Moa from "./views/documents/Moa";
 import Recommendation from "./views/documents/Recommendation";
 import Resume from "./views/documents/Resume";
+import UpdatingArraysInState from "./notes/UpdatingArraysInState";
+import UpdatingObjectsInState from "./notes/UpdatingObjectsInState";
 
 const router = createBrowserRouter([
     
@@ -39,7 +41,7 @@ const router = createBrowserRouter([
 
             {
                 path: '/notes',
-                element: [<ConditionalRendering key={0} />, <RenderingLists key={1}/>, <AddingInteractions key={2}/>]
+                element: [<ConditionalRendering key={0} />, <RenderingLists key={1}/>, <AddingInteractions key={2}/>, <UpdatingObjectsInState key={3}/>,  <UpdatingArraysInState key={4}/>]
         
             },
             {
