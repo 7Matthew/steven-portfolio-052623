@@ -33,6 +33,9 @@ function CopyNestedObjectsUsingImmer(){
         }
     });
     
+    //unlike useState, we cannot use the same handler function on the field change because we are using immer. 
+    //so we make a dedicated handler function for each field. 
+
     function handleNameChange(e) {
         updatePerson(draft => {
             draft.name = e.target.value;
@@ -110,7 +113,7 @@ function CopyNestedObjectUsingSpread(){
     const [person, setPerson] =useState({ 
         name: 'Steven Matthew',
         artwork: {
-            title: 'Taguig',
+            title: 'Hatdog',
             city: 'Taguig',
             image: 'https://i.imgur.com/Sd1AgUOm.jpg'
         }
@@ -192,15 +195,17 @@ function CopyNestedObjectUsingSpread(){
 
 function CopyingObjectUsingSpread() {
     const [person, setPerson] = useState({
-        firstName: 'Barbara',
+        firstName: 'Kurama',
         lastName: 'Hepworth',
-        email: 'bhepworth@sculpture.com'
+        email: 'Khepworth@sculpture.com',
+        age: 22,
+        homeTown: 'Taguig'
     });
   
     function handleChange(e) {
         setPerson({
           ...person,
-          [e.target.name]: e.target.value
+          [e.target.name]: e.target.value // e.target.name should be enclosed in braces to make it an array since the fields that we have are multiple, hence it should be enclosed in an array.
         });
     }
 
@@ -233,10 +238,32 @@ function CopyingObjectUsingSpread() {
                 onChange={handleChange}
             />
         </label>
+        <label className="form-label m-3">
+            Age:
+            <input
+                type="number"
+                name="age"
+                className="form-control"
+                value={person.age}
+                onChange={handleChange}
+            />
+        </label>
+        <label className="form-label m-3">
+            Home Town:
+            <input
+                type="text"
+                maxLength={10}
+                name="homeTown"
+                className="form-control"
+                value={person.homeTown}
+                onChange={handleChange}
+            />
+        </label>
         <p>
             {person.firstName}{' '}
             {person.lastName}{' '}
-            ({person.email})
+            ({person.email}){' '}
+            <b>{person.age + ' ' + person.homeTown} </b>
         </p>
       </>
     );

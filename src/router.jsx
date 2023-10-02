@@ -10,6 +10,7 @@ import Recommendation from "./views/documents/Recommendation";
 import Resume from "./views/documents/Resume";
 import UpdatingArraysInState from "./notes/UpdatingArraysInState";
 import UpdatingObjectsInState from "./notes/UpdatingObjectsInState";
+import ManagingState from "./notes/ManagingState";
 
 const router = createBrowserRouter([
     
@@ -41,7 +42,14 @@ const router = createBrowserRouter([
 
             {
                 path: '/notes',
-                element: [<ConditionalRendering key={0} />, <RenderingLists key={1}/>, <AddingInteractions key={2}/>, <UpdatingObjectsInState key={3}/>,  <UpdatingArraysInState key={4}/>]
+                element: [
+                    <ConditionalRendering key={0} />, 
+                    <RenderingLists key={1}/>, 
+                    <AddingInteractions key={2}/>, 
+                    <UpdatingObjectsInState key={3}/>,  
+                    <UpdatingArraysInState key={4}/>,
+                    <ManagingState key={5}/>
+                ]
         
             },
             {
